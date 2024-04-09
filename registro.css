@@ -1,0 +1,140 @@
+body, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-size: 18px;
+    font-family: 'Goudy Bookletter 1911', serif; 
+}
+
+body {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: #f0f0f0;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #351d75;
+    color: #fed966;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+    font-family: 'Gentium Book Basic', serif; /* Fonte para o título */
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fed966;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+nav a:hover {
+    color: #674FA7;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+}
+
+nav ul li.right {
+    margin-left: 20px;
+}
+
+nav ul li:not(.right) {
+    display: none;
+}
+
+.login-container {
+    display: flex;
+    flex-direction: row-reverse;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    max-width: 800px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #fff7e0;
+    padding: 20px;
+}
+
+.login-image {
+    width: 50%;
+    text-align: center;
+}
+
+.login-image img {
+    width: 80%;
+    height: auto;
+}
+
+.login-box {
+    width: 50%;
+}
+
+.login-box h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #351d75;
+    font-family: 'Gentium Book Basic', serif; /* Fonte para o título */
+}
+
+.login-box input,
+.login-box button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin: 10px;
+    border: 2px solid #674FA7;
+    border-radius: 5px;
+    box-sizing: border-box;
+}
+
+.login-box input {
+    background-color: #B4A7D5;
+    color: #fed966;
+}
+
+.login-box button {
+    background-color: #351d75;
+    color: #fed966;
+    cursor: pointer;
+}
+
+.login-box button:hover {
+    background-color: #674FA7;
+}
+
+.register-prompt {
+    text-align: center;
+    margin-top: 20px;
+    color:#674FA7;
+}
+
+footer {
+    text-align: center;
+    background-color: #351d75;
+    color: #fed966;
+    margin-top: auto;
+    padding: 20px 0;
+    box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,168 @@
+body, h1, h2, h3, h4, h5, h6, p, ul, li {
+    margin: 0;
+    padding: 0;
+    font-family: 'Goudy Bookletter 1911', serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+h2 {
+    color: #351D75;
+    font-size: 30px;
+    text-align: center;
+}
+
+body {
+    background-color: #ffffff;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+header {
+    background-color: #351d75;
+    color: #fed966;
+    text-align: center;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    padding: 20px 0;
+}
+
+header h1 {
+    margin: 0;
+}
+
+nav ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+nav ul li {
+    display: inline;
+    margin-right: 20px;
+}
+
+nav a {
+    text-decoration: none;
+    color: #fed966;
+    font-weight: bold;
+    transition: color 0.3s;
+    font-size: 18px;
+}
+
+nav a:hover {
+    color: #674FA7;
+}
+
+nav ul {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+nav ul li.right {
+    margin-left: 20px;
+}
+
+nav ul li:not(.right) {
+    display: none;
+}
+
+
+
+.container {
+    margin: 20px auto;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.livro-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.livro {
+    display: flex;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    overflow: hidden;
+    background-color: #FFF7E0;
+    border-color: #FED966;
+}
+
+.livro .capa {
+    flex: 0 0 30%;
+}
+
+.livro .capa img {
+    width: 80%;
+    height: auto;
+    border-radius: 10px 0 0 10px;
+}
+
+.livro .info {
+    flex: 1;
+    padding: 20px;
+}
+
+.livro h3 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.livro p {
+    margin-bottom: 10px;
+}
+
+.livro .avaliacao {
+    margin-bottom: 10px;
+}
+
+.livro .avaliacao .estrela {
+    color: #FFD700;
+    font-size: 20px;
+}
+
+.livro .avaliacao .estrela:hover {
+    cursor: pointer;
+}
+
+.livro textarea {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.livro button {
+    padding: 10px 20px;
+    background-color: #351d75;
+    color: #fed966;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.livro button:hover {
+    background-color: #674FA7;
+}
+
+footer {
+    text-align: center;
+    background-color: #351d75;
+    color: #fed966;
+    margin-top: auto;
+    padding: 20px 0;
+    width: 100%;
+    box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.1);
+}

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - ImagiBooks</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <header>
+        <h1>ImagiBooks</h1>
+        <nav>
+            <ul>
+                <li class="right"><a href="../homePage/index.html"><i class="fas fa-home"></i> Início</a></li>
+                <li class="right"><a href="#"><i class="fas fa-info-circle"></i> Sobre Nós</a></li>
+            </ul>
+        </nav>
+    </header>
+    <div class="login-container">
+        <div class="login-box">
+            <h2><i class="fas fa-sign-in-alt"></i> Login</h2>
+            <form action="#" method="post" id="form-login">
+                <input type="text" placeholder="Usuário" name="username" id="username" required>
+                <input type="password" placeholder="Senha" name="password" id="password" required>
+                <button type="submit">Entrar <i class="fas fa-arrow-right"></i></button>
+            </form>
+            <p class="register-prompt">Não possui uma conta? <a href="/registro.html"><i class="fas fa-user-plus"></i> Clique aqui </a> para se registrar</a>.</p>
+        </div>
+        <div class="login-image">
+            <img src="images/logo.png" alt="Imagem de Login">
+        </div>
+    </div>
+    <footer>
+        <p>&copy; 2024 ImagiBooks</p>
+    </footer>
+    <script src="login.js"></script>
+</body>
+
+</html>
