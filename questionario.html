@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Questionário</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/questionario.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic">
+
+</head>
+<body>
+
+    <header class="l-header" id="header">
+        <div class="navbar container flex">
+            <div class="nav" id="nav">
+                <ul class="nav__menu">
+                    <li class="nav__item nav__item-center">
+                        <div class="nav__brand">
+                            <a href="#" class="niav__link actve-link">ImagiBooks</a>
+                        </div>
+                    </li>
+                    <li class="nav__profile nav__profile-right"><a href="#perfil" id="perfil-link" class="nav__link">Perfil</a></li>
+                    <li class="nav__profile nav__profile-right"><a href="#sair" class="nav__link">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+<div class="container-questionario">
+    <div class="logo-container">
+        <img src="images/logo.png" alt="Logo da sua empresa">
+    </div>
+    <div class="text-container">
+        <p>VAMOS COMEÇAR?</br>
+        ME DIGA QUAIS SUAS PREFERÊNCIAS ABAIXO</p>
+    </div>
+    <form id="questionarioForm">
+        <label for="generoLiterario">Qual é o seu gênero literário favorito?</label>
+        <input type="text" id="generoLiterario" name="generoLiterario" pattern="[a-zA-ZÀ-ÖØ-öø-ÿ]+" title="Somente letras são permitidas" required>
+        
+        <label for="faixaEtaria">Qual é a sua faixa etária?</label>
+        <input type="number" id="faixaEtaria" name="faixaEtaria" title="Somente números são permitidos" required>
+
+        <label for="preferenciaTamanhoLivro">Você prefere livros mais curtos ou longos?</label>
+        <input type="text" id="preferenciaTamanhoLivro" name="preferenciaTamanhoLivro" pattern="[a-zA-ZÀ-ÖØ-öø-ÿ]+" title="Somente letras são permitidas"required>
+
+        <label for="livrosEFilmesFavoritos">Quais são alguns dos seus livros e filmes favoritos?</label>
+        <input type="text" id="livrosEFilmesFavoritos" name="livrosEFilmesFavoritos" required>
+
+        <label for="serieDeLivro">Prefere livros únicos, sagas ou séries?</label>
+        <input type="text" id="serieDeLivro" name="serieDeLivro" pattern="[a-zA-ZÀ-ÖØ-öø-ÿ]+" title="Somente letras são permitidas"required>
+        
+        <input type="submit" value="Buscar">
+    </form>
+</div>
+<div id="novoContainer" class="container-informacoes" ></div>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2024 ImagiBooks</p>
+    </div>
+</footer>
+
+<script src="js/questionario.js"></script>
+
+</body>
+</html>

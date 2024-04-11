@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perfil</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="css/perfil.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic">
+
+</head>
+<body>
+
+    <header class="l-header" id="header">
+        <div class="navbar container flex">
+            <div class="nav" id="nav">
+                <ul class="nav__menu">
+                    <li class="nav__item nav__item-center">
+                        <div class="nav__brand">
+                            <a href="#" class="nav__link active-link">ImagiBooks</a>
+                        </div>
+                    </li>
+                    <li class="nav__profile nav__profile-right"><a href="#perfil" class="nav__link">Perfil</a></li>
+                    <li class="nav__profile nav__profile-right"><a href="index.html" id="sair" class="nav__link">Sair</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+
+<div class="container-dadosPessoais">
+    <div class="logo-container">
+        <img src="images/logo.png" alt="Logo da sua empresa" class="logo">
+    </div>
+    <p class="title">Perfil</p>
+    <div class="info-wrapper">
+        <p>
+            <span class="info-label">Nome:</span>
+            <span class="info-value" id="nomeUsuario">Usuario</span> 
+        </p>
+        <p>
+            <span class="info-label">Email:</span>
+            <span class="info-value" id="emailUsuario">email@usuario.com</span>
+        </p>
+    </div>
+</div>
+
+
+
+
+
+
+<div class="container-quiz">
+    <p><span class="start-text">CLIQUE AQUI PARA</span> <br>
+    <span class="start-text">INICIAR O </span> <span class="link-quiz" id="quiz-button">QUIZ</span></p>
+</div>
+
+<div id="container" class="container-recomendacao">
+    <p class="tituloR">HISTÓRICO DE <br> RECOMENDAÇÕES</p>
+    <div id="container" class="container-historico">
+        <div class="search-bar">
+            <input type="text" id="pesquisaLivro" placeholder="Pesquisar livro...">
+            <button class="pesquisarLivro" onclick="pesquisarLivro()">Pesquisar</button>
+        </div>
+    </div>
+</div>
+
+<footer class="footer">
+    <div class="container">
+        <p>© 2024 ImagiBooks</p>
+    </div>
+
+    <script src="js/perfil.js"></script>
+</footer>
+
+
+
+

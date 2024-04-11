@@ -1,0 +1,354 @@
+:root {
+    --header-height: 6.25rem;
+    --text-color: #FED966;
+    --main-color: #351D75;
+    --first-color: #FFF7E0;
+    --second-color: #B4A7D5;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --body-font: 'Gentinum Book Basic', sans-serif;
+    --h1-font-size: 2.25rem;
+    --font-bold: 800;
+    
+    --mb-1: 1rem;
+}
+
+body {
+    font-family: 'Gentium Book Basic', serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.l-header {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--main-color);
+    transition: all 400ms ease;
+}
+
+.nav__menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between; 
+}
+.nav__item {
+    margin: 0 580px;
+    font-size: 35px;
+}
+.nav__item.nav__item-center {
+    position: relative;
+    align-items: center; 
+    left: 60px; 
+}
+
+.nav__item.nav__item-center .nav__link {
+    margin: 0; 
+}
+.nav__profile {
+    margin: 0 7.5px;
+    font-size: 20px;
+    align-items: center;
+}
+.nav__profile.nav__profile-right {
+    display: flex;
+    align-items: top;
+    justify-content: right;
+}
+.nav__profile.nav__profile-right .nav__link {
+    margin: 0;
+}
+
+.nav__toggle{
+    font-size: var(--h1-font-size);
+    padding: 5px 5px 0;
+    border: 2px solid transparent;
+    cursor: pointer;
+    z-index: var(--Z-fixed);
+}
+.nav__toggle:hover{
+    color: var(--first-color);
+    border: 2px solid var(--first-color);
+}
+
+.nav__brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+}
+
+.nav__link {
+    font-weight: var(--font-bold);
+    color: #000000; 
+    position: relative;
+    transition: color 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+
+.nav__link:hover {
+    border-bottom-color: var(--text-color);
+}
+
+.nav__menu li.nav__item a.nav__link,
+.nav__menu li.nav__item a.nav__link:hover {
+    text-decoration: none;
+    color: var(--text-color);
+
+}
+.nav__menu li.nav__item a.nav__link {
+    text-decoration: none;
+}
+.nav__menu li.nav__item a.nav__link:hover:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 5px;
+    background-color: transparent;
+    transition: width 0.3s ease;
+}
+
+.nav__menu li.nav__profile a.nav__link,
+.nav__menu li.nav__profile a.nav__link:hover {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+
+.nav__menu li.nav__profile a.nav__link {
+    text-decoration: none;
+}
+.nav__menu li.nav__profile a.nav__link:hover:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 5px;
+    background-color: transparent;
+    transition: width 0.3s ease;
+}
+
+.nav__link:hover,
+.nav__link.active-link {
+    color: var(--text-color);
+}
+
+@media only screen and (max-width: 600px) {
+    .nav__menu {
+        flex-direction: line; 
+        align-items: center; 
+        text-align: center; 
+    }
+    .nav__item {
+        margin: 100px;
+    }
+  }
+  
+  @media (max-width: 1400px) {
+    .nav__toggle {
+      display: block;
+      position: absolute;
+      top: 20px; 
+      right: 20px; 
+    }
+    .nav__menu {
+        flex-direction: line; 
+        align-items: center; 
+        text-align: center;
+    }
+    .nav__item {
+        margin: 100px;
+    }
+
+    
+    
+  }
+  
+
+.logo {
+    margin: 0px;
+    max-width: 250px;
+    display: block;
+    float: right;
+    margin-left: 20px;
+    margin-top: -20px;
+}
+
+.logo-container {
+    margin-right: 20px;
+    flex-basis: 70%; 
+}
+
+.container-dadosPessoais {
+    width: 93%;
+    margin: 50px auto;
+    background-color: var(--first-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    overflow: auto;
+    font-size: 30px;  
+    align-items: center;  
+
+}
+
+.content {
+    display: flex;
+}
+
+.title {
+
+    margin: 40px ;
+    margin-left: 580px;
+    font-size: 75px;
+}
+
+
+
+
+.container-quiz {
+    width: 1350px;
+    margin: 20px auto; 
+    background-color: var(--first-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    
+    
+}
+
+.container-quiz .start-text {
+    color: var(--main-color);
+    font-size: 45px;
+
+}
+
+.container-quiz .link-quiz{
+    color: var(--text-color);
+    font-size: 45px;
+}
+
+.link-quiz:hover {
+    text-decoration: underline; 
+
+}
+
+.container-quiz {
+    width: 93%;
+    margin: 20px auto;
+    background-color: var(--first-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center; 
+    
+    
+}
+
+.container-recomendacao {
+    width: 93%;
+    margin: 20px auto;
+    background-color: var(--first-color);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.container-dadosPessoais,
+.container-quiz,
+.container-recomendacao {
+    margin-top: 50px; 
+    margin-bottom: 50px; 
+}
+
+
+
+.tituloR {
+    font-size: 55px;
+}
+
+.container-historico{
+    width: 93%;
+    margin: 20px auto;
+    background-color: var(--second-color);
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center; 
+    
+}
+
+.search-bar {
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+#pesquisaLivro {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    flex: 1;
+    margin-right: 10px;
+}
+
+.pesquisarLivro {
+    background-color: var(--main-color);
+    color: var(--text-color);
+    border: none;
+    padding: 13px 50px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+@media (max-width: 1500px) {
+  
+    .container-dadosPessoais {
+      margin: 50px auto 20px;
+      width: 90%;
+      padding: 20px;
+      font-size: 20px;
+    }
+  
+    .title {
+      margin: 20px auto;
+      font-size: 50px;
+      text-align: left;
+    }
+  
+    .container-quiz,
+    .container-recomendacao,
+    .container-historico {
+      width: 90%;
+      margin: 20px auto;
+      padding: 20px;
+      font-size: 20px;
+    }
+  
+    .tituloR {
+      font-size: 40px;
+    }
+  
+    .container-historico {
+      background-color: var(--second-color);
+    }
+
+  }
+  
+  
+
+.footer {
+    background-color: var(--main-color);
+    color: #fff;
+    padding: 5px 0;
+    text-align: center;
+    font-size: 20px;
+}
