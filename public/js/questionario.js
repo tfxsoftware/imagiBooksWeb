@@ -1,47 +1,57 @@
-
 document.addEventListener('DOMContentLoaded', function() {
     var form = document.getElementById('questionarioForm');
     var novoContainer = document.getElementById('novoContainer');
 
     form.addEventListener('submit', function(event) {
         event.preventDefault();
+        var tituloLivro = document.getElementById('generoLiterario').value;
+        var userId = "algumUserId"; // Supondo que você tenha alguma lógica para determinar o ID do usuário
+        var dataToSend = JSON.stringify({ titulo_livro: tituloLivro, userId: userId });
 
-        novoContainer.innerHTML = '';
-
-        var novoTitulo = document.createElement('h2');
-        novoTitulo.textContent = 'NOSSA RECOMENDAÇÃO PARA VOCÊ';
-
-        var novoContainerRecomendacao = document.createElement('div');
-        novoContainerRecomendacao.className = 'container-recomendacao';
-        novoContainerRecomendacao.appendChild(novoTitulo);
-
-        novoContainer.parentNode.insertBefore(novoContainerRecomendacao, novoContainer);
-
-        var novoContainerHTML = `
-            <p>TÍTULO DO LIVRO</p>
-            <p>DESCRIÇÃO DO LIVRO</P>
-            <div class="container-informacoes" style="background-color: var(--first-color); padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); margin-top: 20px;">
-                <h2>Novo Container</h2>
-                <p>Este é um novo container gerado após clicar no botão "Buscar".</p>
-            </div>
-        `;
-
-        novoContainer.innerHTML = novoContainerHTML;
-
-        novoContainer.style.display = 'block';
-    });
-    
-});
-document.addEventListener('DOMContentLoaded', function() {
-    
-    var perfilLink = document.getElementById('perfil-link');
-
-    perfilLink.addEventListener('click', function(event) {
+        fetch('http://127.0.0.1:5000/ai/recommend', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: dataToSend
+        })
+        .then(response => response.json())
+        .then(data => {
+            novoContainer.innerHTML = ''; // Limpa o container antes de adicionar novos conteúdos
+            if (!data.livros || data.livros.length === 0) {
+                novoContainer.textContent = 'Nenhuma recomendação disponível.';
+                return;
+            }
         
-        event.preventDefault();
+            var novoTitulo = document.createElement('h2');
+            novoTitulo.textContent = 'NOSSA RECOMENDAÇÃO PARA VOCÊ';
+            novoContainer.appendChild(novoTitulo);
+        
+            var textoDescricao = document.createElement('p');
+            textoDescricao.textContent = data.texto;
+            novoContainer.appendChild(textoDescricao);
+        
+            var novoContainerRecomendacao = document.createElement('div');
+            novoContainerRecomendacao.className = 'container-recomendacao';
+        
+            data.livros.forEach(recomendacao => {
+                var recElement = document.createElement('p');
+                recElement.textContent = recomendacao;
+                novoContainerRecomendacao.appendChild(recElement);
+            });
+        
+            novoContainer.appendChild(novoContainerRecomendacao);
+            novoContainer.style.display = 'block'; // Assegura que o container está visível
+        })
+        .catch(error => {
+            console.error('Erro ao buscar recomendações:', error);
+            novoContainer.textContent = 'Erro ao buscar recomendações.';
+        });
+        
+        
+    });
 
-        window.location.assign('perfil.html');
+    var perfilLink = document.getElementById('perfil-link');
+    perfilLink.addEventListener('click', function(event) {
+        event.preventDefault();
+        window.location.assign('/perfil'); // Ajuste o caminho conforme necessário
     });
 });
-
-

@@ -4,17 +4,20 @@ const { initializeApp } = require('firebase/app');
 const { getAuth, signInWithEmailAndPassword } = require('firebase/auth');
 
 const app = express();
+const cors = require('cors');
+app.use(cors());
+
 
 // Configuração do Firebase
-// const firebaseConfig = {
-//     apiKey: "AIzaSyCD1MHguVoNdHkCUkUax8ipCE1zfn0sWKQ",
-//     authDomain: "imagibooks.firebaseapp.com",
-//     projectId: "imagibooks",
-//     storageBucket: "imagibooks.appspot.com",
-//     messagingSenderId: "672389904540",
-//     appId: "1:672389904540:web:5c61ea3064ec312ac99559",
-//     measurementId: "G-SC98VVPQGL"
-// };
+ //const firebaseConfig = {
+    // apiKey: "AIzaSyCD1MHguVoNdHkCUkUax8ipCE1zfn0sWKQ",
+    //authDomain: "imagibooks.firebaseapp.com",
+   //  projectId: "imagibooks",
+   //  storageBucket: "imagibooks.appspot.com",
+    // messagingSenderId: "672389904540",
+    // appId: "1:672389904540:web:5c61ea3064ec312ac99559",
+    // measurementId: "G-SC98VVPQGL"
+ //};
 
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
