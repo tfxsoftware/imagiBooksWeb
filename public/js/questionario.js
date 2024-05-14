@@ -52,6 +52,12 @@ document.addEventListener('DOMContentLoaded', function() {
     var perfilLink = document.getElementById('perfil-link');
     perfilLink.addEventListener('click', function(event) {
         event.preventDefault();
-        window.location.assign('/perfil'); // Ajuste o caminho conforme necessário
+        window.location.assign('/perfil.html'); 
+    });
+
+    var sairLink = document.querySelector('.nav__link[href="#sair"]');
+    sairLink.addEventListener('click', function(event) {
+        event.preventDefault(); // Previne a navegação padrão
+        window.location.assign('/home.html'); // Redireciona para home.html
     });
 });
