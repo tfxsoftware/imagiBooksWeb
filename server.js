@@ -6,8 +6,6 @@ const { getAuth, signInWithEmailAndPassword } = require('firebase/auth');
 const app = express();
 const cors = require('cors');
 app.use(cors());
-
-
 // Configuração do Firebase
  //const firebaseConfig = {
      //apiKey: "AIzaSyCD1MHguVoNdHkCUkUax8ipCE1zfn0sWKQ",
@@ -36,8 +34,8 @@ app.post('/', (req, res) => {
             res.redirect('/perfil.html');
         })
         .catch((error) => {
-            // Erro de login
-            res.status(401).sendFile(path.join(__dirname, 'public', 'login.html'));
+            // Erro de login, redireciona com o parâmetro de erro
+            res.redirect('/?error=invalid_credentials');
         });
 });
 

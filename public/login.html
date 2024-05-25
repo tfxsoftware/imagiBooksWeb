@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,7 +7,6 @@
     <link rel="stylesheet" href="css/login.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 </head>
-
 <body>
     <header>
         <h1>ImagiBooks</h1>
@@ -38,6 +36,19 @@
         <p>&copy; 2024 ImagiBooks</p>
     </footer>
     <script src="/public/js/login.js"></script>
-</body>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const params = new URLSearchParams(window.location.search);
+            const errorMessage = document.getElementById('error-message');
 
+            if (params.has('error')) {
+                const error = params.get('error');
+                if (error === 'invalid_credentials') {
+                    errorMessage.textContent = 'Usuário ou senha inválidos.';
+                    errorMessage.style.color = 'purple';
+                }
+            }
+        });
+    </script>
+</body>
 </html>
