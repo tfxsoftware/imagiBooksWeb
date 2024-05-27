@@ -30,14 +30,18 @@ registroForm.addEventListener('submit', function (e) {
         .then(response => {
             console.log('Resposta do servidor:', response);  // Log para verificar a resposta
             if (response.ok) {
-                alert('Cadastro bem-sucedido!');
-                registroForm.reset();
-                window.location.href = '/perfil.html';  // Redirecionar para perfil.html após o cadastro bem-sucedido
+                return response.json();  // Obter a resposta JSON
             } else {
                 return response.json().then(errData => {
                     throw new Error('Erro ao processar o cadastro: ' + (errData.error || 'Desconhecido'));
                 });
             }
+        })
+        .then(data => {
+            alert('Cadastro bem-sucedido!');
+            registroForm.reset();
+            localStorage.setItem('userId', data.userId);  // Armazenar o ID do usuário
+            window.location.href = '/perfil.html';  // Redirecionar para perfil.html após o cadastro bem-sucedido
         })
         .catch(error => {
             console.error('Erro ao processar o cadastro:', error);
