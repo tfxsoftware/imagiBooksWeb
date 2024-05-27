@@ -1,5 +1,4 @@
-// Validação do formulário de registro
-const registroForm = document.querySelector('#registro form');
+const registroForm = document.querySelector('form');
 
 registroForm.addEventListener('submit', function (e) {
     e.preventDefault();
@@ -19,8 +18,9 @@ registroForm.addEventListener('submit', function (e) {
             senha: senha
         };
 
-    
-        fetch('http://18.230.206.14:5000/user/new', {
+        console.log('Enviando dados:', userData);  // Log para verificar os dados
+
+        fetch('http://localhost:5000/user/new', {  // Use 'localhost' para testes locais
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -28,11 +28,14 @@ registroForm.addEventListener('submit', function (e) {
             body: JSON.stringify(userData)
         })
         .then(response => {
+            console.log('Resposta do servidor:', response);  // Log para verificar a resposta
             if (response.ok) {
                 alert('Cadastro bem-sucedido!');
                 registroForm.reset();
             } else {
-                throw new Error('Erro ao processar o cadastro');
+                return response.json().then(errData => {
+                    throw new Error('Erro ao processar o cadastro: ' + (errData.error || 'Desconhecido'));
+                });
             }
         })
         .catch(error => {

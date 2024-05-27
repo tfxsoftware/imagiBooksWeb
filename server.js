@@ -7,15 +7,15 @@ const app = express();
 const cors = require('cors');
 app.use(cors());
 // Configuração do Firebase
- //const firebaseConfig = {
-     //apiKey: "AIzaSyCD1MHguVoNdHkCUkUax8ipCE1zfn0sWKQ",
-     //authDomain: "imagibooks.firebaseapp.com",
-     //projectId: "imagibooks",
-     //storageBucket: "imagibooks.appspot.com",
-     //messagingSenderId: "672389904540",
-     //appId: "1:672389904540:web:5c61ea3064ec312ac99559",
-      //measurementId: "G-SC98VVPQGL"
- //};
+ const firebaseConfig = {
+     apiKey: "AIzaSyCD1MHguVoNdHkCUkUax8ipCE1zfn0sWKQ",
+     authDomain: "imagibooks.firebaseapp.com",
+     projectId: "imagibooks",
+     storageBucket: "imagibooks.appspot.com",
+     messagingSenderId: "672389904540",
+     appId: "1:672389904540:web:5c61ea3064ec312ac99559",
+      measurementId: "G-SC98VVPQGL"
+ };
 
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
@@ -37,6 +37,11 @@ app.post('/', (req, res) => {
             // Erro de login, redireciona com o parâmetro de erro
             res.redirect('/?error=invalid_credentials');
         });
+});
+
+// Rota para servir o HTML de registro
+app.get('/registro.html', (req, res) => {
+    res.sendFile(path.join(__dirname, 'public', 'registro.html'));
 });
 
 // Rota para a página de login
