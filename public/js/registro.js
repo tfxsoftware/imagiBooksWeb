@@ -32,6 +32,7 @@ registroForm.addEventListener('submit', function (e) {
             if (response.ok) {
                 alert('Cadastro bem-sucedido!');
                 registroForm.reset();
+                window.location.href = '/perfil.html';  // Redirecionar para perfil.html após o cadastro bem-sucedido
             } else {
                 return response.json().then(errData => {
                     throw new Error('Erro ao processar o cadastro: ' + (errData.error || 'Desconhecido'));
