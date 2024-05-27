@@ -20,7 +20,7 @@ registroForm.addEventListener('submit', function (e) {
 
         console.log('Enviando dados:', userData);  // Log para verificar os dados
 
-        fetch('http://localhost:5000/user/new', {  // Use 'localhost' para testes locais
+        fetch('http://127.0.0.1:5000/user/new', {  // Use 'localhost' para testes locais
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
