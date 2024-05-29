@@ -7,10 +7,8 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/perfil.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic">
-
 </head>
 <body>
-
     <header class="l-header" id="header">
         <div class="navbar container flex">
             <div class="nav" id="nav">
@@ -27,52 +25,43 @@
         </div>
     </header>
 
-
-<div class="container-dadosPessoais">
-    <div class="logo-container">
-        <img src="images/logo.png" alt="Logo da sua empresa" class="logo">
-    </div>
-    
-    <div class="info-wrapper">
-        <p>
-            <span class="info-label">Nome:</span>
-            <span class="info-value" id="nomeUsuario">Usuario</span> 
-        </p>
-        <p>
-            <span class="info-label">Email:</span>
-            <span class="info-value" id="emailUsuario">email@usuario.com</span>
-        </p>
-    </div>
-</div>
-
-
-
-
-
-
-<div class="container-quiz">
-    <p><span class="start-text">CLIQUE AQUI PARA</span> <br>
-    <span class="start-text">INICIAR O </span> <span class="link-quiz" id="quiz-button">QUIZ</span></p>
-</div>
-
-<div id="container" class="container-recomendacao">
-    <p class="tituloR">HISTÓRICO DE <br> RECOMENDAÇÕES</p>
-    <div id="container" class="container-historico">
-        <div class="search-bar">
-            <input type="text" id="pesquisaLivro" placeholder="Pesquisar livro...">
-            <button class="pesquisarLivro" onclick="pesquisarLivro()">Pesquisar</button>
+    <div class="container-dadosPessoais">
+        <div class="logo-container">
+            <img src="images/logo.png" alt="Logo da sua empresa" class="logo">
+        </div>
+        
+        <div class="info-wrapper">
+            <p>
+                <span class="info-label">Nome:</span>
+                <span class="info-value" id="nomeUsuario">Usuario</span> 
+            </p>
+            <p>
+                <span class="info-label">Email:</span>
+                <span class="info-value" id="emailUsuario">email@usuario.com</span>
+            </p>
         </div>
     </div>
-</div>
 
-<footer class="footer">
-    <div class="container">
-        <p>© 2024 ImagiBooks</p>
+    <div class="container-quiz">
+        <p><span class="start-text">CLIQUE AQUI PARA</span> <br>
+        <span class="start-text">INICIAR O </span> <span class="link-quiz" id="quiz-button">QUIZ</span></p>
     </div>
 
-    <script src="js/perfil.js"></script>
-</footer>
+    <div class="container-recomendacao">
+        <p class="tituloR">HISTÓRICO DE <br> RECOMENDAÇÕES</p>
+        <div class="container-historico">
+            <div class="search-bar">
+                <input type="text" id="pesquisaLivro" placeholder="Pesquisar livro...">
+                <button class="pesquisarLivro" onclick="pesquisarLivro()">Pesquisar</button>
+            </div>
+        </div>
+    </div>
 
-
-
-
+    <footer class="footer">
+        <div class="container">
+            <p>© 2024 ImagiBooks</p>
+        </div>
+        <script src="js/perfil.js"></script>
+    </footer>
+</body>
+</html>

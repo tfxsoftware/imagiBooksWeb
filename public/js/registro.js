@@ -18,9 +18,7 @@ registroForm.addEventListener('submit', function (e) {
             senha: senha
         };
 
-        console.log('Enviando dados:', userData);  // Log para verificar os dados
-
-        fetch('http://127.0.0.1:5000/user/new', {  // Use 'localhost' para testes locais
+        fetch('http://127.0.0.1:5000/user/new', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -28,9 +26,8 @@ registroForm.addEventListener('submit', function (e) {
             body: JSON.stringify(userData)
         })
         .then(response => {
-            console.log('Resposta do servidor:', response);  // Log para verificar a resposta
             if (response.ok) {
-                return response.json();  // Obter a resposta JSON
+                return response.json();
             } else {
                 return response.json().then(errData => {
                     throw new Error('Erro ao processar o cadastro: ' + (errData.error || 'Desconhecido'));
@@ -40,8 +37,8 @@ registroForm.addEventListener('submit', function (e) {
         .then(data => {
             alert('Cadastro bem-sucedido!');
             registroForm.reset();
-            localStorage.setItem('userId', data.userId);  // Armazenar o ID do usuário
-            window.location.href = '/perfil.html';  // Redirecionar para perfil.html após o cadastro bem-sucedido
+            localStorage.setItem('userId', data.userId);
+            window.location.href = '/perfil.html';
         })
         .catch(error => {
             console.error('Erro ao processar o cadastro:', error);

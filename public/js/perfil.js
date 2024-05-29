@@ -7,6 +7,29 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(data => {
                 document.getElementById('nomeUsuario').textContent = data.nome;
                 document.getElementById('emailUsuario').textContent = data.email;
+
+                // Exibir recomendações
+                if (data.recomendacoes && data.recomendacoes.length > 0) {
+                    const containerHistorico = document.querySelector('.container-historico');
+                    data.recomendacoes.forEach(recomendacao => {
+                        const recomendacaoDiv = document.createElement('div');
+                        recomendacaoDiv.className = 'recomendacao';
+                        recomendacaoDiv.innerHTML = `
+                            <p><strong>Livro Inserido:</strong> ${recomendacao.livro_inserido}</p>
+                            <p><strong>Livros Recomendados:</strong></p>
+                            <ul>
+                                ${recomendacao.livros_recomendados.map(livro => `<li>${livro}</li>`).join('')}
+                            </ul>
+                            <p><strong>Timestamp:</strong> ${new Date(recomendacao.timestamp * 1000).toLocaleString()}</p>
+                        `;
+                        containerHistorico.appendChild(recomendacaoDiv);
+                    });
+                } else {
+                    const containerHistorico = document.querySelector('.container-historico');
+                    const noRecomendacoes = document.createElement('p');
+                    noRecomendacoes.textContent = 'Nenhuma recomendação encontrada.';
+                    containerHistorico.appendChild(noRecomendacoes);
+                }
             })
             .catch(error => {
                 console.error('Erro ao buscar os dados do usuário:', error);
