@@ -1,3 +1,4 @@
+
 :root {
     --header-height: 6.25rem;
     --text-color: #FED966;
@@ -6,14 +7,15 @@
     --second-color: #B4A7D5;
     --white-color: #ffffff;
     --black-color: #000000;
-    --body-font: 'Gentium Book Basic', serif;
+    --body-font: 'Gentinum Book Basic', sans-serif;
     --h1-font-size: 2.25rem;
     --font-bold: 800;
     --mb-1: 1rem;
 }
 
+
 body {
-    font-family: var(--body-font);
+    font-family: 'Gentium Book Basic', serif;
     background-color: #f4f4f4;
     margin: 0;
     padding: 0;
@@ -40,12 +42,12 @@ body {
     margin: 0 580px;
     font-size: 35px;
 }
-.nav_item.nav_item-center {
+.nav__item.nav__item-center {
     position: relative;
     align-items: center;
     left: 60px; 
 }
-.nav_item.navitem-center .nav_link {
+.nav__item.nav__item-center .nav__link {
     margin: 0;
 }
 .nav__profile {
@@ -53,12 +55,12 @@ body {
     font-size: 20px;
     align-items: center;
 }
-.nav_profile.nav_profile-right {
+.nav__profile.nav__profile-right {
     display: flex;
     align-items: top;
     justify-content: right;
 }
-.nav_profile.navprofile-right .nav_link {
+.nav__profile.nav__profile-right .nav__link {
     margin: 0;
 }
 .nav__brand {
@@ -78,15 +80,15 @@ body {
 .nav__link:hover {
     border-bottom-color: var(--text-color);
 }
-.nav_menu li.navitem a.nav_link,
-.nav_menu li.navitem a.nav_link:hover {
+.nav__menu li.nav__item a.nav__link,
+.nav__menu li.nav__item a.nav__link:hover {
     text-decoration: none;
     color: var(--text-color);
 }
-.nav_menu li.navitem a.nav_link {
+.nav__menu li.nav__item a.nav__link {
     text-decoration: none;
 }
-.nav_menu li.navitem a.nav_link:hover:after {
+.nav__menu li.nav__item a.nav__link:hover:after {
     content: '';
     display: block;
     width: 0;
@@ -94,15 +96,15 @@ body {
     background-color: transparent;
     transition: width 0.3s ease;
 }
-.nav_menu li.navprofile a.nav_link,
-.nav_menu li.navprofile a.nav_link:hover {
+.nav__menu li.nav__profile a.nav__link,
+.nav__menu li.nav__profile a.nav__link:hover {
     text-decoration: none;
     color: var(--text-color);
 }
-.nav_menu li.navprofile a.nav_link {
+.nav__menu li.nav__profile a.nav__link {
     text-decoration: none;
 }
-.nav_menu li.navprofile a.nav_link:hover:after {
+.nav__menu li.nav__profile a.nav__link:hover:after {
     content: '';
     display: block;
     width: 0;
@@ -216,19 +218,42 @@ input[type="submit"] {
     display: none;
 }
 .container-recomendacao {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     text-align: center;
 }
-
 .container-recomendacao h2 {
-    margin: 0 auto; /* Centraliza horizontalmente */
-    font-size: 2rem; /* Ajusta o tamanho da fonte conforme necessário */
-    font-weight: var(--font-bold); /* Mantém o peso da fonte conforme a variável definida */
-    text-align: center; /* Centraliza o texto */
+    margin: 0;
 }
-
+@media (max-width: 1400px) {
+    .container-recomendacao {
+        width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+    }
+    .container-informacoes  {
+        width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+    }
+    .container-recomendacao h2  {
+        width: 90%;
+        margin: 20px auto;
+        padding: 10px;
+    }
+    .nav__menu {
+        flex-direction: line;
+        align-items: center;
+        text-align: center;
+    }
+    .nav__item {
+        margin: 100px;
+        font-size: 35px;
+    }
+    .logo-container {
+        margin-left: auto;
+        margin-right: auto;
+        display: block;
+    }
+}
 ul {
     list-style-type: none; 
     padding: 0; 
@@ -237,8 +262,6 @@ ul {
 ul li {
     margin-bottom: 10px; 
 }
-
-
 .footer {
     background-color: var(--main-color);
     color: #fff;

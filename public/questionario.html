@@ -7,47 +7,51 @@
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="css/questionario.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Gentium+Book+Basic">
+
 </head>
 <body>
+
     <header class="l-header" id="header">
         <div class="navbar container flex">
             <div class="nav" id="nav">
                 <ul class="nav__menu">
-                    <li class="nav_item nav_item-center">
+                    <li class="nav__item nav__item-center">
                         <div class="nav__brand">
                             <a href="#" class="nav__link actve-link">ImagiBooks</a>
                         </div>
                     </li>
-                    <li class="nav_profile navprofile-right"><a href="#perfil" id="perfil-link" class="nav_link">Perfil</a></li>
-                    <li class="nav_profile navprofile-right"><a href="#sair" class="nav_link">Sair</a></li>
+                    <li class="nav__profile nav__profile-right"><a href="#perfil" id="perfil-link" class="nav__link">Perfil</a></li>
+                    <li class="nav__profile nav__profile-right"><a href="#sair" class="nav__link">Sair</a></li>
                 </ul>
             </div>
         </div>
     </header>
 
-    <div class="container-questionario">
-        <div class="logo-container">
-            <img src="images/logo.png" alt="Logo da sua empresa">
-        </div>
-        <div class="text-container">
-            <p>VAMOS COMEÇAR?</br>
-            ME DIGA QUAIS SUAS PREFERÊNCIAS ABAIXO</p>
-        </div>
-        <form id="questionarioForm">
-            <label for="TituloLivro">Insira um título que deseja obter uma recomendação de um livro parecido?</label>
-            <input type="text" id="generoLiterario" name="generoLiterario">
-            <input type="submit" value="Buscar">
-        </form>
+
+<div class="container-questionario">
+    <div class="logo-container">
+        <img src="images/logo.png" alt="Logo da sua empresa">
     </div>
+    <div class="text-container">
+        <p>VAMOS COMEÇAR?</br>
+        ME DIGA QUAIS SUAS PREFERÊNCIAS ABAIXO</p>
+    </div>
+    <form id="questionarioForm">
+        <label for="TituloLivro">Insira um titulo que deseja obter uma recomdenção de um livro parecido?</label>
+        <input type="text" id="generoLiterario" name="generoLiterario">
 
-    <div id="novoContainer" class="container-informacoes"></div>
+        <input type="submit" value="Buscar">
+    </form>
+</div>
+<div id="novoContainer" class="container-informacoes" ></div>
 
-    <footer class="footer">
-        <div class="container">
-            <p>© 2024 ImagiBooks</p>
-        </div>
-    </footer>
+<footer class="footer">
+    <div class="container">
+        <p>© 2024 ImagiBooks</p>
+    </div>
+</footer>
 
-    <script src="js/questionario.js"></script>
+<script src="js/questionario.js"></script>
+
 </body>
 </html>
