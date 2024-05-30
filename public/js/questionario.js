@@ -29,20 +29,25 @@ document.addEventListener('DOMContentLoaded', function() {
             novoTitulo.textContent = 'NOSSA RECOMENDAÇÃO PARA VOCÊ';
             novoContainer.appendChild(novoTitulo);
 
+            // Remover quebras de linha, chaves e aspas simples do início e fim
+            var textoFormatado = data.texto.replace(/\\n/g, ' ').replace(/[{}']/g, '').trim();
+
             var textoDescricao = document.createElement('p');
-            textoDescricao.textContent = data.texto;
+            textoDescricao.textContent = textoFormatado;
             novoContainer.appendChild(textoDescricao);
 
             var novoContainerRecomendacao = document.createElement('div');
             novoContainerRecomendacao.className = 'container-recomendacao';
 
-            data.livros.forEach(recomendacao => {
-                var recElement = document.createElement('p');
-                recElement.textContent = recomendacao;
-                novoContainerRecomendacao.appendChild(recElement);
+            var listaRecomendacoes = document.createElement('ul');
+            data.livros.forEach(livro => {
+                var itemLista = document.createElement('li');
+                itemLista.textContent = livro;
+                listaRecomendacoes.appendChild(itemLista);
             });
-
+            novoContainerRecomendacao.appendChild(listaRecomendacoes);
             novoContainer.appendChild(novoContainerRecomendacao);
+
             novoContainer.style.display = 'block'; // Assegura que o container está visível
         })
         .catch(error => {

@@ -8,28 +8,33 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('nomeUsuario').textContent = data.nome;
                 document.getElementById('emailUsuario').textContent = data.email;
 
+                const checklist = data.checklist || {};
+
                 if (data.recomendacoes && data.recomendacoes.length > 0) {
-                    const containerHistorico = document.querySelector('.container-historico');
+                    const containerHistorico = document.getElementById('containerHistorico');
                     data.recomendacoes.forEach(recomendacao => {
                         const recomendacaoDiv = document.createElement('div');
                         recomendacaoDiv.className = 'recomendacao';
                         recomendacaoDiv.innerHTML = `
-                            <p><strong>Livro Inserido:</strong> ${recomendacao.livro_inserido}</p>
-                            <p><strong>Livros Recomendados:</strong></p>
-                            <ul>
-                                ${recomendacao.livros_recomendados.map(livro => `
-                                    <li>
-                                        ${livro}
-                                        <input type="checkbox" onchange="saveChecklist('${userId}', '${livro}', this.checked)">
-                                    </li>
-                                `).join('')}
-                            </ul>
-                            <p><strong>Timestamp:</strong> ${new Date(recomendacao.timestamp * 1000).toLocaleString()}</p>
+                            <img src="images/LivroImagiBooks.png" alt="Capa do Livro">
+                            <div class="recomendacao-content">
+                                <p><strong>Livro Inserido:</strong> ${recomendacao.livro_inserido}</p>
+                                <p><strong>Livros Recomendados:</strong></p>
+                                <ul>
+                                    ${recomendacao.livros_recomendados.map(livro => `
+                                        <li>
+                                            ${livro}
+                                            <input type="checkbox" ${checklist[livro] ? 'checked' : ''} onchange="saveChecklist('${userId}', '${livro}', this.checked)">
+                                        </li>
+                                    `).join('')}
+                                </ul>
+                                <p><strong>Timestamp:</strong> ${new Date(recomendacao.timestamp * 1000).toLocaleString()}</p>
+                            </div>
                         `;
                         containerHistorico.appendChild(recomendacaoDiv);
                     });
                 } else {
-                    const containerHistorico = document.querySelector('.container-historico');
+                    const containerHistorico = document.getElementById('containerHistorico');
                     const noRecomendacoes = document.createElement('p');
                     noRecomendacoes.textContent = 'Nenhuma recomendação encontrada.';
                     containerHistorico.appendChild(noRecomendacoes);

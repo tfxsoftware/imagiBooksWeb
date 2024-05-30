@@ -1,3 +1,16 @@
+:root {
+    --header-height: 6.25rem;
+    --text-color: #FED966;
+    --main-color: #351D75;
+    --first-color: #FFF7E0;
+    --second-color: #B4A7D5;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --body-font: 'Gentinum Book Basic', sans-serif;
+    --h1-font-size: 2.25rem;
+    --font-bold: 800;
+    --mb-1: 1rem;
+}
 body, p, ul, li {
     margin: 0;
     padding: 0;
@@ -65,17 +78,15 @@ nav ul li:not(.right) {
 }
 
 .login-container {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
-    margin: 20px auto;
-    max-width: 800px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-    border-radius: 10px;
-    overflow: hidden;
-    background-color: #fff7e0;
+    width: 93%;
+    margin: 50px auto;
+    background-color: var(--first-color);
     padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 }
 
 .login-image {
@@ -133,7 +144,7 @@ nav ul li:not(.right) {
 footer {
     text-align: center;
     background-color: #351d75;
-    color: #fed966;
+    color: var(--white-color);
     margin-top: auto;
     padding: 20px 0;
     box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.1);

@@ -150,7 +150,7 @@ body {
     }
   }
   
-  @media (max-width: 1400px) {
+@media (max-width: 1400px) {
     .nav__toggle {
       display: block;
       position: absolute;
@@ -165,11 +165,7 @@ body {
     .nav__item {
         margin: 100px;
     }
-
-    
-    
-  }
-  
+}
 
 .logo {
     margin: 0px;
@@ -195,7 +191,6 @@ body {
     overflow: auto;
     font-size: 30px;  
     align-items: center;  
-
 }
 
 .content {
@@ -203,14 +198,10 @@ body {
 }
 
 .title {
-
     margin: 40px ;
     margin-left: 580px;
     font-size: 75px;
 }
-
-
-
 
 .container-quiz {
     width: 1350px;
@@ -220,14 +211,11 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center;
-    
-    
 }
 
 .container-quiz .start-text {
     color: var(--main-color);
     font-size: 45px;
-
 }
 
 .container-quiz .link-quiz{
@@ -237,7 +225,6 @@ body {
 
 .link-quiz:hover {
     text-decoration: underline; 
-
 }
 
 .container-quiz {
@@ -248,8 +235,6 @@ body {
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     text-align: center; 
-    
-    
 }
 
 .container-recomendacao {
@@ -269,31 +254,60 @@ body {
     margin-bottom: 50px; 
 }
 
-
-
 .tituloR {
     font-size: 55px;
 }
-
-.container-historico{
+.container-historicoBase{
     width: 93%;
     margin: 20px auto;
-    background-color: var(--second-color);
     padding: 20px;
     border-radius: 10px;
     text-align: center; 
-    
 }
+
+.container-historico{
+  
+    background-color: var(--main-color);
+    width: 97%;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center; 
+}
+
+.recomendacao {
+    display: flex;
+    background-color: var(--second-color);
+    color: var(--white-color);
+    padding: 20px;
+    margin-bottom: 20px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.recomendacao img {
+    max-width: 140px;
+    margin-right: 20px;
+    border-radius: 10px;
+}
+
+.recomendacao-content {
+    flex: 1;
+}
+
 
 .search-bar {
     margin-bottom: 20px;
+    border: var(--main-color);
     display: flex;
     align-items: center;
 }
 
 #pesquisaLivro {
     padding: 10px;
-    border: 1px solid #ccc;
+    border: var(--main-color);
+    border: 2px solid #351D75;
     border-radius: 5px;
     font-size: 16px;
     flex: 1;
@@ -301,8 +315,10 @@ body {
 }
 
 .pesquisarLivro {
-    background-color: var(--main-color);
+    background-color: var(--second-color);
+    border: var(--main-color);
     color: var(--text-color);
+    border: 2px solid #351D75;
     border: none;
     padding: 13px 50px;
     cursor: pointer;
@@ -310,7 +326,6 @@ body {
 }
 
 @media (max-width: 1500px) {
-  
     .container-dadosPessoais {
       margin: 50px auto 20px;
       width: 90%;
@@ -338,12 +353,9 @@ body {
     }
   
     .container-historico {
-      background-color: var(--second-color);
+      background-color: var(--main-color);
     }
-
-  }
-  
-  
+}
 
 .footer {
     background-color: var(--main-color);
