@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
     const userId = localStorage.getItem('userId');
-    
+
     if (userId) {
         fetch(`http://127.0.0.1:5000/user/${userId}`)
             .then(response => response.json())
@@ -8,7 +8,6 @@ document.addEventListener('DOMContentLoaded', function () {
                 document.getElementById('nomeUsuario').textContent = data.nome;
                 document.getElementById('emailUsuario').textContent = data.email;
 
-                // Exibir recomendações
                 if (data.recomendacoes && data.recomendacoes.length > 0) {
                     const containerHistorico = document.querySelector('.container-historico');
                     data.recomendacoes.forEach(recomendacao => {
@@ -18,7 +17,12 @@ document.addEventListener('DOMContentLoaded', function () {
                             <p><strong>Livro Inserido:</strong> ${recomendacao.livro_inserido}</p>
                             <p><strong>Livros Recomendados:</strong></p>
                             <ul>
-                                ${recomendacao.livros_recomendados.map(livro => `<li>${livro}</li>`).join('')}
+                                ${recomendacao.livros_recomendados.map(livro => `
+                                    <li>
+                                        ${livro}
+                                        <input type="checkbox" onchange="saveChecklist('${userId}', '${livro}', this.checked)">
+                                    </li>
+                                `).join('')}
                             </ul>
                             <p><strong>Timestamp:</strong> ${new Date(recomendacao.timestamp * 1000).toLocaleString()}</p>
                         `;
@@ -40,6 +44,27 @@ document.addEventListener('DOMContentLoaded', function () {
         window.location.href = 'login.html';
     }
 });
+
+function saveChecklist(userId, livro, lido) {
+    const sanitizedLivro = livro.replace(/[^a-zA-Z0-9 ]/g, ''); // Remove caracteres não alfanuméricos, exceto espaços
+    fetch(`http://127.0.0.1:5000/user/checklist/${userId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+            livro: sanitizedLivro,
+            lido: lido
+        })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Resposta da API:', data);
+    })
+    .catch(error => {
+        console.error('Erro ao salvar checklist:', error);
+    });
+}
 
 const quizButton = document.getElementById('quiz-button');
 quizButton.addEventListener('click', function() {

@@ -41,6 +41,7 @@ app.post('/', (req, res) => {
             res.redirect('/perfil.html');
         })
         .catch((error) => {
+            console.error('Login error:', error);
             res.redirect('/?error=invalid_credentials');
         });
 });
