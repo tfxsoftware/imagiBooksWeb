@@ -14,16 +14,16 @@ const corsOptions = {
 
 app.use(cors(corsOptions));
 app.options('*', cors(corsOptions));
-
+/*
 const firebaseConfig = {
-    apiKey: "API_KEY",
-    authDomain: "PROJECT_ID.firebaseapp.com",
-    projectId: "PROJECT_ID",
-    storageBucket: "PROJECT_ID.appspot.com",
-    messagingSenderId: "SENDER_ID",
-    appId: "APP_ID",
-    measurementId: "G-MEASUREMENT_ID"
-};
+    apiKey: "AIzaSyCD1MHguVoNdHkCUkUax8ipCE1zfn0sWKQ",
+    authDomain: "imagibooks.firebaseapp.com",
+    projectId: "imagibooks",
+    storageBucket: "imagibooks.appspot.com",
+    messagingSenderId: "672389904540",
+    appId: "1:672389904540:web:5c61ea3064ec312ac99559",
+    measurementId: "G-SC98VVPQGL"
+};*/
 
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
