@@ -1,22 +1,3 @@
-const estrelas = document.querySelectorAll('.avaliacao .estrela');
-
-estrelas.forEach(function(estrela) {
-    estrela.addEventListener('click', function() {
-        const valorEstrela = parseInt(estrela.getAttribute('data-estrela'));
-        const livro = estrela.closest('.livro');
-        const avaliacao = livro.querySelector('.avaliacao');
-        const estrelas = avaliacao.querySelectorAll('.estrela');
-
-        estrelas.forEach(function(outraEstrela, indice) {
-            if (indice < valorEstrela) {
-                outraEstrela.classList.add('selecionada');
-            } else {
-                outraEstrela.classList.remove('selecionada');
-            }
-        });
-    });
-});
-
 document.addEventListener('DOMContentLoaded', function() {
     const sairButton = document.querySelector('.right a[href="#"]');
 
@@ -29,19 +10,154 @@ document.addEventListener('DOMContentLoaded', function() {
             window.location.href = "home.html";
         }
     });
+
+    // Obtenha o ID do usuário logado (ajuste conforme sua lógica de autenticação)
+    const userId = getUserIdFromSession(); // Esta função deve retornar o ID do usuário logado
+
+    if (userId) {
+        fetchBooks(userId);
+    }
 });
 
+function getUserIdFromSession() {
+    // Simulação de como obter o userId da sessão (ajuste conforme sua implementação)
+    return localStorage.getItem('userId');
+}
 
-const botoesRemoverFavorito = document.querySelectorAll('.remover-favorito');
+function fetchBooks(userId) {
+    fetch(`http://localhost:5000/user/checklist/${userId}`)
+        .then(response => response.json())
+        .then(data => {
+            console.log('Dados recebidos:', data); // Adicione este log
+            if (data) {
+                displayBooks(data, userId);
+            } else {
+                console.error('Nenhum livro encontrado.');
+            }
+        })
+        .catch(error => console.error('Erro ao buscar livros:', error));
+}
 
-botoesRemoverFavorito.forEach(function(botao) {
-    botao.addEventListener('click', function() {
-        const confirmarRemocao = confirm("Tem certeza que deseja remover este livro dos favoritos?");
-        
-        if (confirmarRemocao) {
-            const livro = botao.closest('.livro');
-            livro.remove();
-            alert("Livro removido dos favoritos com sucesso!");
+function displayBooks(checklist, userId) {
+    const livroContainer = document.querySelector('.livro-container');
+    livroContainer.innerHTML = ''; // Limpa o conteúdo existente
+
+    for (const [livro, lido] of Object.entries(checklist)) {
+        const livroDiv = document.createElement('div');
+        livroDiv.className = 'livro';
+
+        const capaDiv = document.createElement('div');
+        capaDiv.className = 'capa';
+        const img = document.createElement('img');
+        img.src = '/images/LivroImagiBooks.png';
+        img.alt = `Capa do ${livro}`;
+        capaDiv.appendChild(img);
+
+        const infoDiv = document.createElement('div');
+        infoDiv.className = 'info';
+        const h3 = document.createElement('h3');
+        h3.textContent = livro;
+        const textarea = document.createElement('textarea');
+        textarea.placeholder = 'Escreva um comentário sobre o livro';
+        textarea.value = ''; // Inicialmente vazio, pode ser preenchido com um comentário existente
+
+        // Adiciona avaliação com estrelas
+        const ratingDiv = document.createElement('div');
+        ratingDiv.className = 'rating';
+        for (let i = 1; i <= 5; i++) {  // Ordem correta das estrelas
+            const star = document.createElement('span');
+            star.className = 'star';
+            star.innerHTML = '&#9733;'; // Estrela
+            star.dataset.value = i;
+            star.addEventListener('click', function() {
+                setRating(ratingDiv, i);
+                saveRating(userId, livro, i);
+            });
+            ratingDiv.appendChild(star);
+        }
+
+        const button = document.createElement('button');
+        button.className = 'salvar-comentario';
+        button.innerHTML = '<i class="fas fa-save"></i> Salvar Comentário';
+
+        // Adiciona evento ao botão para salvar o comentário
+        button.addEventListener('click', function() {
+            const comentario = textarea.value;
+            saveComment(userId, livro, comentario);
+        });
+
+        infoDiv.appendChild(h3);
+        infoDiv.appendChild(ratingDiv);
+        infoDiv.appendChild(textarea);
+        infoDiv.appendChild(button);
+
+        livroDiv.appendChild(capaDiv);
+        livroDiv.appendChild(infoDiv);
+
+        livroContainer.appendChild(livroDiv);
+
+        // Busca e exibe comentários existentes
+        fetchComment(userId, livro, textarea, ratingDiv);
+    }
+}
+
+function setRating(ratingDiv, rating) {
+    const stars = ratingDiv.querySelectorAll('.star');
+    stars.forEach(star => {
+        if (star.dataset.value <= rating) {
+            star.classList.add('rated');
+        } else {
+            star.classList.remove('rated');
         }
     });
-});
+}
+
+function saveComment(userId, livro, comentario) {
+    fetch(`http://localhost:5000/user/comment/${userId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ livro, comentario })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Comentário salvo:', data);
+    })
+    .catch(error => console.error('Erro ao salvar comentário:', error));
+}
+
+function saveRating(userId, livro, rating) {
+    fetch(`http://localhost:5000/user/rating/${userId}`, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ livro, rating })
+    })
+    .then(response => response.json())
+    .then(data => {
+        console.log('Avaliação salva:', data);
+    })
+    .catch(error => console.error('Erro ao salvar avaliação:', error));
+}
+
+function fetchComment(userId, livro, textarea, ratingDiv) {
+    fetch(`http://localhost:5000/user/comment/${userId}/${livro}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.comentario) {
+                textarea.value = data.comentario;
+            }
+        })
+        .catch(error => console.error('Erro ao buscar comentário:', error));
+
+    fetch(`http://localhost:5000/user/rating/${userId}/${livro}`)
+        .then(response => response.json())
+        .then(data => {
+            if (data && data.rating) {
+                setRating(ratingDiv, data.rating);
+            }
+        })
+        .catch(error => console.error('Erro ao buscar avaliação:', error));
+}

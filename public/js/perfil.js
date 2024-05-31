@@ -82,3 +82,8 @@ sairLink.addEventListener('click', function(event) {
     localStorage.removeItem('userId');
     window.location.href = 'home.html';
 });
+
+const meusLivrosButton = document.getElementById('meusLivrosButton');
+meusLivrosButton.addEventListener('click', function() {
+    window.location.href = 'meus_livros.html';
+});

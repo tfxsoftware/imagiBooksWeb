@@ -1,21 +1,27 @@
+:root {
+    --header-height: 6.25rem;
+    --text-color: #FED966;
+    --main-color: #351D75;
+    --first-color: #FFF7E0;
+    --second-color: #B4A7D5;
+    --roxo-color: #674FA7;
+    --amarelo-color: #e4d9b7;
+    --white-color: #ffffff;
+    --black-color: #000000;
+    --body-font: 'Poppins', sans-serif;
+    --h1-font-size: 2.25rem;
+    --font-bold: 800;
+    --mb-1: 1rem;
+}
+
 body, h1, h2, h3, h4, h5, h6, p, ul, li {
     margin: 0;
     padding: 0;
-    font-family: 'Goudy Bookletter 1911', serif;
-}
-
-h1 {
-    text-align: center;
-}
-
-h2 {
-    color: #351D75;
-    font-size: 30px;
-    text-align: center;
+    font-family: 'Poppins', sans-serif;
 }
 
 body {
-    background-color: #ffffff;
+    background-color: #f4f4f4;
     color: #333;
     display: flex;
     flex-direction: column;
@@ -34,15 +40,18 @@ header {
 
 header h1 {
     margin: 0;
+    font-size: 2rem;
 }
 
 nav ul {
     list-style-type: none;
     padding: 0;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 }
 
 nav ul li {
-    display: inline;
     margin-right: 20px;
 }
 
@@ -51,84 +60,103 @@ nav a {
     color: #fed966;
     font-weight: bold;
     transition: color 0.3s;
-    font-size: 18px;
+    font-size: 1rem;
 }
 
 nav a:hover {
-    color: #674FA7;
-}
-
-nav ul {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
+    color: #ffffff;
 }
 
 nav ul li.right {
     margin-left: 20px;
 }
 
-nav ul li:not(.right) {
-    display: none;
-}
-
-
-
 .container {
     margin: 20px auto;
-    width: 100%;
-    max-width: 1200px;
+    width: 90%;
+    max-width: 1400px;
+    padding: 20px;
+    background-color: var(--main-color);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.container h2 {
+    color: var(--text-color);
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 30px;
 }
 
 .livro-container {
+    width: 100%;
     display: flex;
+    background-color: var(--main-color);
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    max-width: 1200px;
 }
 
 .livro {
     display: flex;
-    margin-bottom: 20px;
-    border: 1px solid #ccc;
+    flex-direction: row;
+    margin-bottom: 30px;
+    border: 1px solid #e0e0e0;
     border-radius: 10px;
     overflow: hidden;
     background-color: #FFF7E0;
-    border-color: #FED966;
+    width: 100%;
+    max-width: 1200px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.livro:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
 .livro .capa {
-    flex: 0 0 30%;
+    flex: 0 0 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+    background-color: var(--white-color);
 }
 
 .livro .capa img {
-    width: 80%;
+    width: 100%;
     height: auto;
-    border-radius: 10px 0 0 10px;
+    border-radius: 5px;
 }
 
 .livro .info {
     flex: 1;
-    padding: 20px;
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--first-color);
 }
 
 .livro h3 {
-    font-size: 24px;
+    font-size: 2rem;
     margin-bottom: 10px;
+    color: #351D75;
 }
 
 .livro p {
     margin-bottom: 10px;
+    font-size: 1.5rem;
 }
 
 .livro .avaliacao {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
 }
 
 .livro .avaliacao .estrela {
     color: #FFD700;
-    font-size: 20px;
+    font-size: 2rem;
 }
 
 .livro .avaliacao .estrela:hover {
@@ -136,33 +164,204 @@ nav ul li:not(.right) {
 }
 
 .livro textarea {
-    width: 90%;
-    padding: 10px;
-    margin-bottom: 10px;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
     border: 1px solid #ccc;
     border-radius: 5px;
+    resize: vertical;
+    font-size: 1.25rem;
 }
 
 .livro button {
-    padding: 10px 20px;
+    padding: 15px 30px;
     background-color: #351d75;
     color: #fed966;
     border: none;
     border-radius: 5px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, transform 0.3s;
+    align-self: flex-start;
+    font-size: 1.25rem;
 }
 
 .livro button:hover {
     background-color: #674FA7;
+    transform: scale(1.05);
+}
+
+.rating {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.star {
+    font-size: 2rem;
+    color: #ccc;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.star.rated {
+    color: #FFD700;
+}
+
+.star:hover,
+.star:hover ~ .star {
+    color: #FFD700;
 }
 
 footer {
     text-align: center;
-    background-color: #351d75;
-    color: #fed966;
+    background-color: var(--main-color);
+    color: var(--white-color);
     margin-top: auto;
     padding: 20px 0;
     width: 100%;
     box-shadow: 0 -3px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Media Queries */
+@media (max-width: 1200px) {
+    .container {
+        width: 95%;
+        padding: 15px;
+    }
+
+    .livro {
+        flex-direction: column;
+        max-width: 100%;
+    }
+
+    .livro .capa {
+        flex: 0 0 auto;
+        width: 100%;
+        padding: 10px;
+    }
+
+    .livro .capa img {
+        max-width: 200px;
+    }
+
+    .livro .info {
+        padding: 20px;
+    }
+
+    .livro h3 {
+        font-size: 1.75rem;
+    }
+
+    .livro p,
+    .livro textarea {
+        font-size: 1.25rem;
+    }
+
+    .livro .avaliacao .estrela {
+        font-size: 1.75rem;
+    }
+
+    .livro button {
+        font-size: 1.25rem;
+        padding: 10px 20px;
+    }
+
+    .rating .star {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.75rem;
+    }
+
+    nav a {
+        font-size: 0.875rem;
+    }
+
+    .container h2 {
+        font-size: 1.75rem;
+    }
+
+    .livro {
+        margin-bottom: 20px;
+    }
+
+    .livro .info {
+        padding: 15px;
+    }
+
+    .livro h3 {
+        font-size: 1.5rem;
+    }
+
+    .livro p,
+    .livro textarea {
+        font-size: 1.125rem;
+    }
+
+    .livro .avaliacao .estrela {
+        font-size: 1.5rem;
+    }
+
+    .livro button {
+        font-size: 1.125rem;
+        padding: 10px 20px;
+    }
+
+    .rating .star {
+        font-size: 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    nav ul li {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    nav a {
+        font-size: 0.875rem;
+    }
+
+    .container h2 {
+        font-size: 1.5rem;
+    }
+
+    .livro .info {
+        padding: 10px;
+    }
+
+    .livro h3 {
+        font-size: 1.25rem;
+    }
+
+    .livro p,
+    .livro textarea {
+        font-size: 1rem;
+    }
+
+    .livro .avaliacao .estrela {
+        font-size: 1.25rem;
+    }
+
+    .livro button {
+        font-size: 1rem;
+        padding: 8px 16px;
+    }
+
+    .rating .star {
+        font-size: 1.25rem;
+    }
 }
