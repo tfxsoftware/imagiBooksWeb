@@ -2,6 +2,7 @@
 :root {
     --header-height: 6.25rem;
     --text-color: #FED966;
+    --text2-color: #f7e9bf;
     --main-color: #351D75;
     --first-color: #FFF7E0;
     --second-color: #B4A7D5;
@@ -119,7 +120,7 @@ body {
 .container-questionario {
     width: 93%;
     margin: 50px auto;
-    background-color: var(--first-color);
+    background-color: var(--text2-color);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -211,7 +212,7 @@ input[type="submit"] {
 .container-informacoes {
     width: 93%;
     margin: 50px auto;
-    background-color: var(--first-color);
+    background-color: var(--text2-color);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);

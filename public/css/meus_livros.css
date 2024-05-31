@@ -64,11 +64,64 @@ nav a {
 }
 
 nav a:hover {
-    color: #ffffff;
+    color: var(--text-color);
+    text-decoration: underline; 
 }
 
 nav ul li.right {
     margin-left: 20px;
+}
+
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav ul li a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    text-decoration: underline; 
+}
+/* Adicione estas novas regras CSS ao final do arquivo meus_livros.css */
+
+/* Estilos para levantar os itens do menu ao passar o mouse */
+nav ul li {
+    display: inline-block;
+    margin-right: 20px;
+    position: relative;
+}
+
+nav ul li a {
+    display: inline-block;
+    padding: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+nav ul li a:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos para levantar o título "ImagiBooks" ao passar o mouse */
+.logo-link h1 {
+    display: inline-block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, text-decoration 0.3s ease;
+    color: #fed966; /* Certifique-se de que a cor do texto corresponda ao design */
+    text-decoration: none; /* Remover sublinhado por padrão */
+}
+
+.logo-link:hover h1 {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: #fed966; /* Mantém a cor do texto original */
+    text-decoration: underline; /* Adiciona sublinhado */
 }
 
 .container {

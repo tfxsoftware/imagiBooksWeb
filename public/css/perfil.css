@@ -394,7 +394,9 @@ body {
     width: 100%; 
 }
 
-
+.meus-livros:hover {
+    text-decoration: underline; 
+}
 
 
 .footer {

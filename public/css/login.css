@@ -1,6 +1,7 @@
 :root {
     --header-height: 6.25rem;
     --text-color: #FED966;
+    --text2-color: #f7e9bf;
     --main-color: #351D75;
     --first-color: #FFF7E0;
     --second-color: #B4A7D5;
@@ -30,57 +31,166 @@ body {
     min-height: 100vh;
 }
 
-header {
-    background-color: #351d75;
-    color: #fed966;
-    text-align: center;
-    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
-    padding: 20px 0;
-}
-
-header h1 {
-    margin: 0;
-    font-family: 'Gentium Book Basic', serif;
-}
-
-nav ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-nav ul li {
-    display: inline;
-    margin-right: 20px;
-}
-
-nav a {
-    text-decoration: none;
-    color: #fed966;
-    font-weight: bold;
-    transition: color 0.3s;
-}
-
-nav a:hover {
-    color: #674FA7;
-}
-
-nav ul {
+.l-header {
     display: flex;
-    justify-content: flex-end;
+    justify-content: center; 
+    align-items: center; 
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--main-color);
+    transition: all 400ms ease;
 }
 
-nav ul li.right {
-    margin-left: 20px;
+.nav__menu {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    justify-content: space-between; 
 }
 
-nav ul li:not(.right) {
-    display: none;
+.nav__item {
+    margin: 0 580px;
+    font-size: 35px;
+}
+
+.nav__item.nav__item-center {
+    position: relative;
+    align-items: center; 
+    left: 60px; 
+}
+
+.nav__item.nav__item-center .nav__link {
+    margin: 0; 
+}
+
+.nav__profile {
+    margin: 0 7.5px;
+    font-size: 20px;
+    align-items: center;
+}
+
+.nav__profile.nav__profile-right {
+    display: flex;
+    align-items: top;
+    justify-content: right;
+}
+
+.nav__profile.nav__profile-right .nav__link {
+    margin: 0;
+}
+
+.nav__toggle{
+    font-size: var(--h1-font-size);
+    padding: 5px 5px 0;
+    border: 2px solid transparent;
+    cursor: pointer;
+    z-index: var(--Z-fixed);
+}
+
+.nav__toggle:hover{
+    color: var(--first-color);
+    border: 2px solid var(--first-color);
+}
+
+.nav__brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    text-align: center; 
+}
+
+.nav__link {
+    font-weight: var(--font-bold);
+    color: #000000; 
+    position: relative;
+    transition: color 0.3s ease;
+    border-bottom: 2px solid transparent;
+}
+
+.nav__link:hover {
+    border-bottom-color: var(--text-color);
+}
+
+.nav__menu li.nav__item a.nav__link,
+.nav__menu li.nav__item a.nav__link:hover {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.nav__menu li.nav__item a.nav__link {
+    text-decoration: none;
+}
+
+.nav__menu li.nav__item a.nav__link:hover:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 5px;
+    background-color: transparent;
+    transition: width 0.3s ease;
+}
+
+.nav__menu li.nav__profile a.nav__link,
+.nav__menu li.nav__profile a.nav__link:hover {
+    text-decoration: none;
+    color: var(--text-color);
+}
+
+.nav__menu li.nav__profile a.nav__link {
+    text-decoration: none;
+}
+
+.nav__menu li.nav__profile a.nav__link:hover:after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 5px;
+    background-color: transparent;
+    transition: width 0.3s ease;
+}
+
+.nav__link:hover,
+.nav__link.active-link {
+    color: var(--text-color);
+}
+@media only screen and (max-width: 600px) {
+    .nav__menu {
+        flex-direction: line; 
+        align-items: center; 
+        text-align: center;
+    }
+    
+
+    .nav__item {
+        margin: 90px;
+        font-size: 35px;
+    }
+
+    
+
+}
+
+@media only screen and (max-width: 1400px) {
+  
+    .nav__menu {
+        flex-direction: line; 
+        align-items: center; 
+        text-align: center; 
+    }
+
+    .nav__item {
+        margin: 100px;
+        font-size: 35px;
+    }
+
 }
 
 .login-container {
     width: 93%;
     margin: 50px auto;
-    background-color: var(--first-color);
+    background-color: var(--text2-color);
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
