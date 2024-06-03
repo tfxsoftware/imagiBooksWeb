@@ -2,7 +2,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const sairButton = document.querySelector('.right a[href="#"]');
 
     sairButton.addEventListener('click', function(event) {
-        event.preventDefault(); // Evita que o link seja seguido
+        event.preventDefault();
 
         const confirmarSaida = confirm("Tem certeza que deseja sair?");
         
@@ -11,8 +11,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
-    // Obtenha o ID do usuário logado (ajuste conforme sua lógica de autenticação)
-    const userId = getUserIdFromSession(); // Esta função deve retornar o ID do usuário logado
+    const userId = getUserIdFromSession();
 
     if (userId) {
         fetchBooks(userId);
@@ -20,7 +19,6 @@ document.addEventListener('DOMContentLoaded', function() {
 });
 
 function getUserIdFromSession() {
-    // Simulação de como obter o userId da sessão (ajuste conforme sua implementação)
     return localStorage.getItem('userId');
 }
 
@@ -28,7 +26,7 @@ function fetchBooks(userId) {
     fetch(`http://localhost:5000/user/checklist/${userId}`)
         .then(response => response.json())
         .then(data => {
-            console.log('Dados recebidos:', data); // Adicione este log
+            console.log('Dados recebidos:', data);
             if (data) {
                 displayBooks(data, userId);
             } else {
@@ -40,7 +38,7 @@ function fetchBooks(userId) {
 
 function displayBooks(checklist, userId) {
     const livroContainer = document.querySelector('.livro-container');
-    livroContainer.innerHTML = ''; // Limpa o conteúdo existente
+    livroContainer.innerHTML = ''; 
 
     for (const [livro, lido] of Object.entries(checklist)) {
         const livroDiv = document.createElement('div');
@@ -59,7 +57,7 @@ function displayBooks(checklist, userId) {
         h3.textContent = livro;
         const textarea = document.createElement('textarea');
         textarea.placeholder = 'Escreva um comentário sobre o livro';
-        textarea.value = ''; // Inicialmente vazio, pode ser preenchido com um comentário existente
+        textarea.value = ''; 
 
         // Adiciona avaliação com estrelas
         const ratingDiv = document.createElement('div');
@@ -123,8 +121,12 @@ function saveComment(userId, livro, comentario) {
     .then(response => response.json())
     .then(data => {
         console.log('Comentário salvo:', data);
+        showMessage('Comentário salvo com sucesso!', 'sucesso');
     })
-    .catch(error => console.error('Erro ao salvar comentário:', error));
+    .catch(error => {
+        console.error('Erro ao salvar comentário:', error);
+        showMessage('Erro ao salvar comentário.', 'erro');
+    });
 }
 
 function saveRating(userId, livro, rating) {
@@ -160,4 +162,15 @@ function fetchComment(userId, livro, textarea, ratingDiv) {
             }
         })
         .catch(error => console.error('Erro ao buscar avaliação:', error));
+}
+
+function showMessage(message, type) {
+    const mensagemDiv = document.getElementById('mensagem');
+    mensagemDiv.textContent = message;
+    mensagemDiv.className = `mensagem ${type}`;
+    mensagemDiv.style.display = 'block';
+    
+    setTimeout(() => {
+        mensagemDiv.style.display = 'none';
+    }, 3000);
 }
